@@ -20,9 +20,9 @@ That's it. FluidElement detects size changes automatically — no configuration 
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `animate` | `"height" \| "width" \| "both"` | `"height"` | Which dimension(s) to animate. |
-| `duration` | `number` | `300` | Animation duration in milliseconds. |
-| `easing` | `EasingType` | `"smooth"` | Easing curve. |
+| `animate` | `"height" \| "width" \| "both"` | `"both"` | Which dimension(s) to animate. |
+| `duration` | `number` | `400` | Animation duration in milliseconds. |
+| `easing` | `EasingType` | `"spring"` | Easing curve. |
 | `as` | `React.ElementType` | `"div"` | Render as any HTML element or component. |
 
 ### Easing options
@@ -31,7 +31,7 @@ That's it. FluidElement detects size changes automatically — no configuration 
 |-------|-------|
 | `smooth` | `cubic-bezier(0.4, 0, 0.2, 1)` |
 | `snappy` | `cubic-bezier(0.25, 0, 0, 1)` |
-| `spring` | `cubic-bezier(0.34, 1.56, 0.64, 1)` |
+| `spring` | `cubic-bezier(0.34, 1.56, 0.6, 1)` |
 | `ease-in-out` | `ease-in-out` |
 | `linear` | `linear` |
 | `ease` | `ease` |
@@ -91,7 +91,7 @@ const [tab, setTab] = useState("overview");
 
 ## Why not Framer Motion?
 
-Framer Motion is a full animation library (~100kb). FluidElement is a single file (~2kb) that does one thing. No setup, no `AnimatePresence`, no layout proxies — just wrap your content and pass `watch`.
+Framer Motion is a full animation library (~100kb). FluidElement is a single file (~2kb) that does one thing. No setup, no `AnimatePresence`, no layout proxies — just wrap your content.
 
 ---
 
