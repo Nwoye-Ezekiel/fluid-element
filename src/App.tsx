@@ -546,9 +546,16 @@ const faqItems = [
     label: "Q1",
     content: (isDark: boolean) => (
       <div className="space-y-2">
-        <p className={`text-sm font-medium ${isDark ? "text-gray-50" : "text-gray-900"}`}>What is FluidElement?</p>
-        <p className={`text-xs leading-relaxed ${isDark ? "text-gray-200" : "text-gray-500"}`}>
-          A React component that animates height, width, or both when its content changes — with no dependencies.
+        <p
+          className={`text-sm font-medium ${isDark ? "text-gray-50" : "text-gray-900"}`}
+        >
+          What is FluidElement?
+        </p>
+        <p
+          className={`text-xs leading-relaxed ${isDark ? "text-gray-200" : "text-gray-500"}`}
+        >
+          A React component that animates height, width, or both when its
+          content changes — with no dependencies.
         </p>
       </div>
     ),
@@ -558,9 +565,16 @@ const faqItems = [
     label: "Q2",
     content: (isDark: boolean) => (
       <div className="space-y-2">
-        <p className={`text-sm font-medium ${isDark ? "text-gray-50" : "text-gray-900"}`}>Does it work with any content?</p>
-        <p className={`text-xs leading-relaxed ${isDark ? "text-gray-200" : "text-gray-500"}`}>
-          Yes. Wrap any children — text, cards, lists, forms. FluidElement detects size changes automatically and handles the rest.
+        <p
+          className={`text-sm font-medium ${isDark ? "text-gray-50" : "text-gray-900"}`}
+        >
+          Does it work with any content?
+        </p>
+        <p
+          className={`text-xs leading-relaxed ${isDark ? "text-gray-200" : "text-gray-500"}`}
+        >
+          Yes. Wrap any children — text, cards, lists, forms. FluidElement
+          detects size changes automatically and handles the rest.
         </p>
       </div>
     ),
@@ -570,13 +584,26 @@ const faqItems = [
     label: "Q3",
     content: (isDark: boolean) => (
       <div className="space-y-2">
-        <p className={`text-sm font-medium ${isDark ? "text-gray-50" : "text-gray-900"}`}>How does it compare to Framer Motion?</p>
-        <p className={`text-xs leading-relaxed ${isDark ? "text-gray-200" : "text-gray-500"}`}>
-          Framer Motion is a full animation library. FluidElement is a single component that does one thing — animate height between content states. No layout proxies, no extra setup, no 100kb bundle.
+        <p
+          className={`text-sm font-medium ${isDark ? "text-gray-50" : "text-gray-900"}`}
+        >
+          How does it compare to Framer Motion?
+        </p>
+        <p
+          className={`text-xs leading-relaxed ${isDark ? "text-gray-200" : "text-gray-500"}`}
+        >
+          Framer Motion is a full animation library. FluidElement is a single
+          component that does one thing — animate height between content states.
+          No layout proxies, no extra setup, no 100kb bundle.
         </p>
         <div className="flex gap-2 pt-1 flex-wrap">
-          {["~2kb", "Zero deps", "No config"].map(t => (
-            <span key={t} className={`text-xs px-2 py-0.5 rounded-full border ${isDark ? "bg-white/5 border-white/10 text-gray-200" : "bg-black/5 border-black/10 text-gray-500"}`}>{t}</span>
+          {["~2kb", "Zero deps", "No config"].map((t) => (
+            <span
+              key={t}
+              className={`text-xs px-2 py-0.5 rounded-full border ${isDark ? "bg-white/5 border-white/10 text-gray-200" : "bg-black/5 border-black/10 text-gray-500"}`}
+            >
+              {t}
+            </span>
           ))}
         </div>
       </div>
@@ -593,8 +620,21 @@ const searchStates = [
     className: "w-40",
     content: (isDark: boolean) => (
       <div className="flex items-center gap-2">
-        <svg className={`w-3.5 h-3.5 shrink-0 ${isDark ? "text-gray-200" : "text-gray-400"}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <span className={`text-xs ${isDark ? "text-gray-200" : "text-gray-400"}`}>Search…</span>
+        <svg
+          className={`w-3.5 h-3.5 shrink-0 ${isDark ? "text-gray-200" : "text-gray-400"}`}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.35-4.35" />
+        </svg>
+        <span
+          className={`text-xs ${isDark ? "text-gray-200" : "text-gray-400"}`}
+        >
+          Search…
+        </span>
       </div>
     ),
   },
@@ -604,8 +644,21 @@ const searchStates = [
     className: "w-72",
     content: (isDark: boolean) => (
       <div className="flex items-center gap-2">
-        <svg className={`w-3.5 h-3.5 shrink-0 ${isDark ? "text-gray-200" : "text-gray-500"}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <span className={`text-xs ${isDark ? "text-gray-50" : "text-gray-900"}`}>FluidElement</span>
+        <svg
+          className={`w-3.5 h-3.5 shrink-0 ${isDark ? "text-gray-200" : "text-gray-500"}`}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.35-4.35" />
+        </svg>
+        <span
+          className={`text-xs ${isDark ? "text-gray-50" : "text-gray-900"}`}
+        >
+          FluidElement
+        </span>
         <span className="w-px h-3.5 bg-gray-300 animate-pulse -ml-0.5" />
       </div>
     ),
@@ -617,11 +670,33 @@ const searchStates = [
     content: (isDark: boolean) => (
       <div className="space-y-1">
         <div className="flex items-center gap-2 mb-2">
-          <svg className={`w-3.5 h-3.5 shrink-0 ${isDark ? "text-gray-200" : "text-gray-500"}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          <span className={`text-xs ${isDark ? "text-gray-50" : "text-gray-900"}`}>FluidElement react</span>
+          <svg
+            className={`w-3.5 h-3.5 shrink-0 ${isDark ? "text-gray-200" : "text-gray-500"}`}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+          <span
+            className={`text-xs ${isDark ? "text-gray-50" : "text-gray-900"}`}
+          >
+            FluidElement react
+          </span>
         </div>
-        {["FluidElement on GitHub", "FluidElement docs", "FluidElement playground"].map(r => (
-          <div key={r} className={`text-xs px-2 py-1 rounded-lg cursor-pointer ${isDark ? "hover:bg-white/5 text-gray-200" : "hover:bg-black/5 text-gray-600"}`}>{r}</div>
+        {[
+          "FluidElement on GitHub",
+          "FluidElement docs",
+          "FluidElement playground",
+        ].map((r) => (
+          <div
+            key={r}
+            className={`text-xs px-2 py-1 rounded-lg cursor-pointer ${isDark ? "hover:bg-white/5 text-gray-200" : "hover:bg-black/5 text-gray-600"}`}
+          >
+            {r}
+          </div>
         ))}
       </div>
     ),
@@ -638,12 +713,31 @@ const settingsPanels = [
     content: (isDark: boolean) => (
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2.5">
-          <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${isDark ? "bg-white/8" : "bg-black/8"}`}>
-            <svg className={`w-3.5 h-3.5 ${isDark ? "text-gray-200" : "text-gray-600"}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+          <div
+            className={`w-7 h-7 rounded-lg flex items-center justify-center ${isDark ? "bg-white/8" : "bg-black/8"}`}
+          >
+            <svg
+              className={`w-3.5 h-3.5 ${isDark ? "text-gray-200" : "text-gray-600"}`}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <circle cx="12" cy="12" r="3" />
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
+            </svg>
           </div>
-          <span className={`text-sm font-medium ${isDark ? "text-gray-50" : "text-gray-900"}`}>Notifications</span>
+          <span
+            className={`text-sm font-medium ${isDark ? "text-gray-50" : "text-gray-900"}`}
+          >
+            Notifications
+          </span>
         </div>
-        <span className={`text-xs px-1.5 py-0.5 rounded-md ${isDark ? "bg-white/8 text-gray-200" : "bg-black/8 text-gray-500"}`}>Off</span>
+        <span
+          className={`text-xs px-1.5 py-0.5 rounded-md ${isDark ? "bg-white/8 text-gray-200" : "bg-black/8 text-gray-500"}`}
+        >
+          Off
+        </span>
       </div>
     ),
   },
@@ -655,22 +749,51 @@ const settingsPanels = [
       <div className="space-y-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${isDark ? "bg-white/8" : "bg-black/8"}`}>
-              <svg className={`w-3.5 h-3.5 ${isDark ? "text-gray-200" : "text-gray-600"}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+            <div
+              className={`w-7 h-7 rounded-lg flex items-center justify-center ${isDark ? "bg-white/8" : "bg-black/8"}`}
+            >
+              <svg
+                className={`w-3.5 h-3.5 ${isDark ? "text-gray-200" : "text-gray-600"}`}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <circle cx="12" cy="12" r="3" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
+              </svg>
             </div>
-            <span className={`text-sm font-medium ${isDark ? "text-gray-50" : "text-gray-900"}`}>Notifications</span>
+            <span
+              className={`text-sm font-medium ${isDark ? "text-gray-50" : "text-gray-900"}`}
+            >
+              Notifications
+            </span>
           </div>
-          <span className="text-xs px-1.5 py-0.5 rounded-md bg-emerald-500/15 text-emerald-400">On</span>
+          <span className="text-xs px-1.5 py-0.5 rounded-md bg-emerald-500/15 text-emerald-400">
+            On
+          </span>
         </div>
-        <div className={`space-y-2 pt-2 border-t ${isDark ? "border-white/[0.06]" : "border-black/[0.06]"}`}>
-          {["Email updates", "Push notifications", "Weekly digest"].map(item => (
-            <div key={item} className="flex items-center justify-between">
-              <span className={`text-xs ${isDark ? "text-gray-200" : "text-gray-500"}`}>{item}</span>
-              <div className={`w-7 h-4 rounded-full flex items-center px-0.5 ${isDark ? "bg-white/10" : "bg-black/10"}`}>
-                <div className={`w-3 h-3 rounded-full ${isDark ? "bg-gray-400" : "bg-gray-500"}`} />
+        <div
+          className={`space-y-2 pt-2 border-t ${isDark ? "border-white/[0.06]" : "border-black/[0.06]"}`}
+        >
+          {["Email updates", "Push notifications", "Weekly digest"].map(
+            (item) => (
+              <div key={item} className="flex items-center justify-between">
+                <span
+                  className={`text-xs ${isDark ? "text-gray-200" : "text-gray-500"}`}
+                >
+                  {item}
+                </span>
+                <div
+                  className={`w-7 h-4 rounded-full flex items-center px-0.5 ${isDark ? "bg-white/10" : "bg-black/10"}`}
+                >
+                  <div
+                    className={`w-3 h-3 rounded-full ${isDark ? "bg-gray-400" : "bg-gray-500"}`}
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ),
+          )}
         </div>
       </div>
     ),
@@ -683,14 +806,33 @@ const settingsPanels = [
       <div className="space-y-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${isDark ? "bg-white/8" : "bg-black/8"}`}>
-              <svg className={`w-3.5 h-3.5 ${isDark ? "text-gray-200" : "text-gray-600"}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+            <div
+              className={`w-7 h-7 rounded-lg flex items-center justify-center ${isDark ? "bg-white/8" : "bg-black/8"}`}
+            >
+              <svg
+                className={`w-3.5 h-3.5 ${isDark ? "text-gray-200" : "text-gray-600"}`}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <circle cx="12" cy="12" r="3" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
+              </svg>
             </div>
-            <span className={`text-sm font-medium ${isDark ? "text-gray-50" : "text-gray-900"}`}>Notifications</span>
+            <span
+              className={`text-sm font-medium ${isDark ? "text-gray-50" : "text-gray-900"}`}
+            >
+              Notifications
+            </span>
           </div>
-          <span className="text-xs px-1.5 py-0.5 rounded-md bg-orange-500/15 text-orange-500">Custom</span>
+          <span className="text-xs px-1.5 py-0.5 rounded-md bg-orange-500/15 text-orange-500">
+            Custom
+          </span>
         </div>
-        <div className={`space-y-2 pt-2 border-t ${isDark ? "border-white/[0.06]" : "border-black/[0.06]"}`}>
+        <div
+          className={`space-y-2 pt-2 border-t ${isDark ? "border-white/[0.06]" : "border-black/[0.06]"}`}
+        >
           {[
             { label: "Email updates", on: true },
             { label: "Push notifications", on: false },
@@ -698,9 +840,17 @@ const settingsPanels = [
             { label: "Security alerts", on: true },
           ].map(({ label, on }) => (
             <div key={label} className="flex items-center justify-between">
-              <span className={`text-xs ${isDark ? "text-gray-200" : "text-gray-500"}`}>{label}</span>
-              <div className={`w-7 h-4 rounded-full flex items-center px-0.5 transition-colors ${on ? "bg-emerald-500/30 justify-end" : isDark ? "bg-white/10" : "bg-black/10"}`}>
-                <div className={`w-3 h-3 rounded-full ${on ? "bg-emerald-500" : isDark ? "bg-gray-400" : "bg-gray-500"}`} />
+              <span
+                className={`text-xs ${isDark ? "text-gray-200" : "text-gray-500"}`}
+              >
+                {label}
+              </span>
+              <div
+                className={`w-7 h-4 rounded-full flex items-center px-0.5 transition-colors ${on ? "bg-emerald-500/30 justify-end" : isDark ? "bg-white/10" : "bg-black/10"}`}
+              >
+                <div
+                  className={`w-3 h-3 rounded-full ${on ? "bg-emerald-500" : isDark ? "bg-gray-400" : "bg-gray-500"}`}
+                />
               </div>
             </div>
           ))}
@@ -956,7 +1106,7 @@ export default function App() {
             </div>
             <div className="flex items-center gap-2">
               <a
-                href="https://github.com/Nwoye-Ezekiel"
+                href="https://github.com/Nwoye-Ezekiel/fluid-element"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`w-9 h-9 rounded-xl flex items-center justify-center border transition-all duration-200 cursor-pointer ${
@@ -979,7 +1129,12 @@ export default function App() {
             <h1
               className={`text-5xl font-semibold tracking-tight leading-none ${isDark ? "text-gray-50" : "text-gray-900"}`}
             >
-              FluidElement <span className={`text-2xl font-normal ${isDark ? "text-gray-400" : "text-gray-400"}`}>by Ezekiel</span>
+              FluidElement{" "}
+              <span
+                className={`text-2xl font-normal ${isDark ? "text-gray-400" : "text-gray-400"}`}
+              >
+                by Ezekiel
+              </span>
             </h1>
             <p
               className={`max-w-md text-base leading-relaxed ${isDark ? "text-gray-100" : "text-gray-500"}`}
@@ -993,7 +1148,7 @@ export default function App() {
             <code
               className={`inline-block text-xs px-3 py-2 rounded-xl border font-mono ${isDark ? "bg-white/5 border-white/[0.08] text-gray-200" : "bg-black/5 border-black/[0.08] text-gray-500"}`}
             >
-              {"<FluidElement animate=\"height\">"}
+              {'<FluidElement animate="height">'}
             </code>
             <div className="flex items-center gap-2">
               {[
@@ -1032,13 +1187,28 @@ export default function App() {
           description="Content changes height. The container follows — no snap, no jump."
           isDark={isDark}
         >
-          <EasingPicker value={heightEasing} onChange={setHeightEasing} isDark={isDark} />
+          <EasingPicker
+            value={heightEasing}
+            onChange={setHeightEasing}
+            isDark={isDark}
+          />
           <div className="flex flex-col gap-6">
             {/* Example A — Notification feed */}
             <div className="space-y-3">
-              <p className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}>Notification card</p>
-              <Tabs options={heightCards} value={heightTab1} onChange={setHeightTab1} isDark={isDark} />
-              <div className={`rounded-2xl border p-5 ${isDark ? "border-white/[0.08] bg-white/[0.02]" : "border-black/[0.08] bg-black/[0.02]"}`}>
+              <p
+                className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}
+              >
+                Notification card
+              </p>
+              <Tabs
+                options={heightCards}
+                value={heightTab1}
+                onChange={setHeightTab1}
+                isDark={isDark}
+              />
+              <div
+                className={`rounded-2xl border p-5 ${isDark ? "border-white/[0.08] bg-white/[0.02]" : "border-black/[0.08] bg-black/[0.02]"}`}
+              >
                 <FluidElement animate="height" easing={heightEasing}>
                   {activeHeight1.content(isDark)}
                 </FluidElement>
@@ -1046,16 +1216,29 @@ export default function App() {
             </div>
             {/* Example B — FAQ accordion */}
             <div className="space-y-3">
-              <p className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}>FAQ accordion</p>
-              <Tabs options={faqItems} value={heightTab2} onChange={setHeightTab2} isDark={isDark} />
-              <div className={`rounded-2xl border p-5 ${isDark ? "border-white/[0.08] bg-white/[0.02]" : "border-black/[0.08] bg-black/[0.02]"}`}>
+              <p
+                className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}
+              >
+                FAQ accordion
+              </p>
+              <Tabs
+                options={faqItems}
+                value={heightTab2}
+                onChange={setHeightTab2}
+                isDark={isDark}
+              />
+              <div
+                className={`rounded-2xl border p-5 ${isDark ? "border-white/[0.08] bg-white/[0.02]" : "border-black/[0.08] bg-black/[0.02]"}`}
+              >
                 <FluidElement animate="height" easing={heightEasing}>
                   {activeHeight2.content(isDark)}
                 </FluidElement>
               </div>
             </div>
           </div>
-          <p className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}>
+          <p
+            className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}
+          >
             {`<FluidElement animate="height" easing="${heightEasing}">`}
           </p>
         </DemoCard>
@@ -1069,13 +1252,28 @@ export default function App() {
           description="The container stretches or shrinks to a new width, animated."
           isDark={isDark}
         >
-          <EasingPicker value={widthEasing} onChange={setWidthEasing} isDark={isDark} />
+          <EasingPicker
+            value={widthEasing}
+            onChange={setWidthEasing}
+            isDark={isDark}
+          />
           <div className="flex flex-col gap-6">
             {/* Example A — Status bar */}
             <div className="space-y-3">
-              <p className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}>Status bar</p>
-              <Tabs options={widthSteps} value={widthStep1} onChange={setWidthStep1} isDark={isDark} />
-              <div className={`rounded-2xl border p-5 overflow-hidden ${isDark ? "border-white/[0.08] bg-white/[0.02]" : "border-black/[0.08] bg-black/[0.02]"}`}>
+              <p
+                className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}
+              >
+                Status bar
+              </p>
+              <Tabs
+                options={widthSteps}
+                value={widthStep1}
+                onChange={setWidthStep1}
+                isDark={isDark}
+              />
+              <div
+                className={`rounded-2xl border p-5 overflow-hidden ${isDark ? "border-white/[0.08] bg-white/[0.02]" : "border-black/[0.08] bg-black/[0.02]"}`}
+              >
                 <FluidElement
                   animate="width"
                   easing={widthEasing}
@@ -1087,9 +1285,20 @@ export default function App() {
             </div>
             {/* Example B — Search bar */}
             <div className="space-y-3">
-              <p className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}>Search bar</p>
-              <Tabs options={searchStates} value={widthStep2} onChange={setWidthStep2} isDark={isDark} />
-              <div className={`rounded-2xl border p-5 overflow-hidden ${isDark ? "border-white/[0.08] bg-white/[0.02]" : "border-black/[0.08] bg-black/[0.02]"}`}>
+              <p
+                className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}
+              >
+                Search bar
+              </p>
+              <Tabs
+                options={searchStates}
+                value={widthStep2}
+                onChange={setWidthStep2}
+                isDark={isDark}
+              />
+              <div
+                className={`rounded-2xl border p-5 overflow-hidden ${isDark ? "border-white/[0.08] bg-white/[0.02]" : "border-black/[0.08] bg-black/[0.02]"}`}
+              >
                 <FluidElement
                   animate="width"
                   easing={widthEasing}
@@ -1100,7 +1309,9 @@ export default function App() {
               </div>
             </div>
           </div>
-          <p className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}>
+          <p
+            className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}
+          >
             {`<FluidElement animate="width" easing="${widthEasing}">`}
           </p>
         </DemoCard>
@@ -1114,13 +1325,28 @@ export default function App() {
           description="Width and height animate together. The container morphs to fit any content shape."
           isDark={isDark}
         >
-          <EasingPicker value={bothEasing} onChange={setBothEasing} isDark={isDark} />
+          <EasingPicker
+            value={bothEasing}
+            onChange={setBothEasing}
+            isDark={isDark}
+          />
           <div className="flex flex-col gap-6">
             {/* Example A — Pricing card */}
             <div className="space-y-3">
-              <p className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}>Pricing card</p>
-              <Tabs options={bothCards} value={bothCard1} onChange={setBothCard1} isDark={isDark} />
-              <div className={`rounded-2xl border p-5 ${isDark ? "border-white/[0.08] bg-white/[0.02]" : "border-black/[0.08] bg-black/[0.02]"}`}>
+              <p
+                className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}
+              >
+                Pricing card
+              </p>
+              <Tabs
+                options={bothCards}
+                value={bothCard1}
+                onChange={setBothCard1}
+                isDark={isDark}
+              />
+              <div
+                className={`rounded-2xl border p-5 ${isDark ? "border-white/[0.08] bg-white/[0.02]" : "border-black/[0.08] bg-black/[0.02]"}`}
+              >
                 <FluidElement
                   animate="both"
                   easing={bothEasing}
@@ -1132,9 +1358,20 @@ export default function App() {
             </div>
             {/* Example B — Settings panel */}
             <div className="space-y-3">
-              <p className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}>Settings panel</p>
-              <Tabs options={settingsPanels} value={bothCard2} onChange={setBothCard2} isDark={isDark} />
-              <div className={`rounded-2xl border p-5 ${isDark ? "border-white/[0.08] bg-white/[0.02]" : "border-black/[0.08] bg-black/[0.02]"}`}>
+              <p
+                className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}
+              >
+                Settings panel
+              </p>
+              <Tabs
+                options={settingsPanels}
+                value={bothCard2}
+                onChange={setBothCard2}
+                isDark={isDark}
+              />
+              <div
+                className={`rounded-2xl border p-5 ${isDark ? "border-white/[0.08] bg-white/[0.02]" : "border-black/[0.08] bg-black/[0.02]"}`}
+              >
                 <FluidElement
                   animate="both"
                   easing={bothEasing}
@@ -1145,7 +1382,9 @@ export default function App() {
               </div>
             </div>
           </div>
-          <p className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}>
+          <p
+            className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}
+          >
             {`<FluidElement animate="both" easing="${bothEasing}">`}
           </p>
         </DemoCard>
