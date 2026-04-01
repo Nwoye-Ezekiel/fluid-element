@@ -574,7 +574,7 @@ const faqItems = [
           className={`text-xs leading-relaxed ${isDark ? "text-gray-200" : "text-gray-500"}`}
         >
           Yes. Wrap any children — text, cards, lists, forms. FluidElement
-          detects size changes automatically and handles the rest.
+          detects size changes automatically and handles the rest. No configs.
         </p>
       </div>
     ),
