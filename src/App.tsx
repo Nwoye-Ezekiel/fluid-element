@@ -459,36 +459,13 @@ const bothCards = [
       </div>
     ),
   },
-  {
-    id: "profile-compact",
-    label: "Profile",
-    width: "w-56",
-    content: (isDark: boolean) => (
-      <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-white text-sm font-semibold shrink-0">
-          EZ
-        </div>
-        <div className="min-w-0">
-          <p
-            className={`text-sm font-medium truncate ${isDark ? "text-gray-50" : "text-gray-900"}`}
-          >
-            Ezekiel N.
-          </p>
-          <p
-            className={`text-xs truncate ${isDark ? "text-gray-100" : "text-gray-200"}`}
-          >
-            @ezekiel
-          </p>
-        </div>
-      </div>
-    ),
-  },
+
   {
     id: "profile-full",
     label: "Profile+",
     width: "w-80",
     content: (isDark: boolean) => (
-      <div className="space-y-3">
+      <div className="space-y-3 whitespace-nowrap">
         <div className="flex items-start gap-3">
           <div className="w-12 h-12 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-white font-semibold shrink-0">
             EZ

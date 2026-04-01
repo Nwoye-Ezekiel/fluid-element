@@ -13,9 +13,7 @@ const easingMap = {
 
 type EasingType = keyof typeof easingMap;
 type AnimateAxis = "height" | "width" | "both";
-
 type AsProp<T extends React.ElementType> = { as?: T };
-
 type Props<T extends React.ElementType = "div"> = AsProp<T> &
   Omit<React.ComponentPropsWithoutRef<T>, "as"> & {
     animate?: AnimateAxis;
@@ -23,26 +21,23 @@ type Props<T extends React.ElementType = "div"> = AsProp<T> &
     easing?: EasingType;
     children: React.ReactNode;
   };
-
 type Dimensions = { width: number; height: number };
 
 export default function FluidElement<T extends React.ElementType = "div">({
   as,
   children,
   className,
-  duration = 300,
+  duration = 400,
   easing = "spring",
   animate = "height",
   ...rest
 }: Props<T>) {
   const Tag = (as ?? "div") as React.ElementType;
-
   const easingCurve = easingMap[easing];
   const animTickRef = useRef(0);
   const animatingRef = useRef(false);
   const containerRef = useRef<HTMLElement>(null);
   const dimsBeforeRef = useRef<Dimensions | null>(null);
-
   const animatesWidth = animate === "width" || animate === "both";
   const animatesHeight = animate === "height" || animate === "both";
 
@@ -50,47 +45,56 @@ export default function FluidElement<T extends React.ElementType = "div">({
     const container = containerRef.current;
     if (!container) return;
 
-    const rect = container.getBoundingClientRect();
-    const toDims: Dimensions = { width: rect.width, height: rect.height };
+    const measure = (): Dimensions => {
+      const { width, height } = container.getBoundingClientRect();
+      return { width, height };
+    };
 
-    if (animatingRef.current) return;
+    let fromDims: Dimensions;
+    let toDims: Dimensions;
 
-    const fromDims = dimsBeforeRef.current;
-
-    if (!fromDims) {
-      dimsBeforeRef.current = toDims;
-      return;
+    if (animatingRef.current) {
+      // Capture the current mid-animation position, release constraints,
+      // then measure the new natural size. All pre-paint — no visual flash.
+      fromDims = measure();
+      container.style.transition = "";
+      if (animatesWidth) container.style.removeProperty("width");
+      if (animatesHeight) container.style.removeProperty("height");
+      toDims = measure();
+    } else {
+      toDims = measure();
+      if (!dimsBeforeRef.current) {
+        dimsBeforeRef.current = toDims;
+        return;
+      }
+      fromDims = dimsBeforeRef.current;
     }
 
-    const heightChanged =
-      animatesHeight &&
-      Math.round(fromDims.height) !== Math.round(toDims.height);
-    const widthChanged =
-      animatesWidth && Math.round(fromDims.width) !== Math.round(toDims.width);
+    const heightChanged = animatesHeight && Math.round(fromDims.height) !== Math.round(toDims.height);
+    const widthChanged = animatesWidth && Math.round(fromDims.width) !== Math.round(toDims.width);
 
     if (!heightChanged && !widthChanged) {
+      container.style.overflow = container.style.boxSizing = "";
+      animatingRef.current = false;
       dimsBeforeRef.current = toDims;
       return;
     }
 
-    dimsBeforeRef.current = toDims;
-
-    const tick = ++animTickRef.current;
-    animatingRef.current = true;
-
-    container.style.transition = "";
+    // Pin to fromDims and animate to toDims.
     container.style.overflow = "hidden";
     container.style.boxSizing = "border-box";
-    if (widthChanged) container.style.width = `${fromDims.width}px`;
     if (heightChanged) container.style.height = `${fromDims.height}px`;
+    if (widthChanged) container.style.width = `${fromDims.width}px`;
+
+    dimsBeforeRef.current = toDims;
+    animatingRef.current = true;
+    const tick = ++animTickRef.current;
 
     requestAnimationFrame(() => {
-      const transitions: string[] = [];
-      if (widthChanged) transitions.push(`width ${duration}ms ${easingCurve}`);
-      if (heightChanged)
-        transitions.push(`height ${duration}ms ${easingCurve}`);
-
-      container.style.transition = transitions.join(", ");
+      container.style.transition = [
+        widthChanged && `width ${duration}ms ${easingCurve}`,
+        heightChanged && `height ${duration}ms ${easingCurve}`,
+      ].filter(Boolean).join(", ");
       if (widthChanged) container.style.width = `${toDims.width}px`;
       if (heightChanged) container.style.height = `${toDims.height}px`;
 
@@ -98,9 +102,7 @@ export default function FluidElement<T extends React.ElementType = "div">({
         "transitionend",
         () => {
           if (animTickRef.current !== tick) return;
-          container.style.overflow = "";
-          container.style.boxSizing = "";
-          container.style.transition = "";
+          container.style.overflow = container.style.boxSizing = container.style.transition = "";
           if (widthChanged) container.style.removeProperty("width");
           if (heightChanged) container.style.removeProperty("height");
           animatingRef.current = false;
