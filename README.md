@@ -9,18 +9,17 @@ Wherever a div would snap to a new size, it morphs instead.
 ```tsx
 import FluidElement from "./FluidElement";
 
-<FluidElement watch={activeTab}>
-  {activeTab === "a" ? <ShortContent /> : <TallContent />}
+<FluidElement>
+  {content}
 </FluidElement>
 ```
 
-Pass any value to `watch` — when it changes, the container animates to fit the new content.
+That's it. FluidElement detects size changes automatically — no configuration needed.
 
 ## Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `watch` | `unknown \| unknown[]` | — | Trigger value. When it changes, the animation runs. |
 | `animate` | `"height" \| "width" \| "both"` | `"height"` | Which dimension(s) to animate. |
 | `duration` | `number` | `300` | Animation duration in milliseconds. |
 | `easing` | `EasingType` | `"smooth"` | Easing curve. |
@@ -46,7 +45,7 @@ Pass any value to `watch` — when it changes, the container animates to fit the
 ```tsx
 const [tab, setTab] = useState("overview");
 
-<FluidElement watch={tab} animate="height" easing="spring">
+<FluidElement animate="height" easing="spring">
   {tab === "overview" ? <Overview /> : <Details />}
 </FluidElement>
 ```
@@ -55,7 +54,6 @@ const [tab, setTab] = useState("overview");
 
 ```tsx
 <FluidElement
-  watch={step}
   animate="width"
   className={step === "compact" ? "w-40" : "w-96"}
 >
@@ -67,7 +65,6 @@ const [tab, setTab] = useState("overview");
 
 ```tsx
 <FluidElement
-  watch={plan}
   animate="both"
   className={plan === "starter" ? "w-52" : "w-80"}
 >
@@ -78,24 +75,14 @@ const [tab, setTab] = useState("overview");
 ### Polymorphic usage
 
 ```tsx
-<FluidElement as="section" watch={isOpen}>
+<FluidElement as="section">
   {isOpen && <ExpandedContent />}
-</FluidElement>
-```
-
-### Multiple watch values
-
-Pass an array to watch multiple dependencies:
-
-```tsx
-<FluidElement watch={[tab, easing]} animate="height" easing={easing}>
-  <TabContent tab={tab} />
 </FluidElement>
 ```
 
 ## How it works
 
-`FluidElement` uses `useLayoutEffect` (without a deps array) to snapshot the container's dimensions before every render. When `watch` changes, it reads the new dimensions from the DOM, then CSS-transitions from the previous size to the new one. No layout proxies, no ResizeObserver, no FLIP.
+`FluidElement` uses `useLayoutEffect` (without a deps array) to run after every render. It snapshots the container's dimensions, compares them to the previous render, and CSS-transitions between the two if they differ. No layout proxies, no ResizeObserver, no FLIP.
 
 - Dimensions are measured with `getBoundingClientRect()` for sub-pixel accuracy
 - `box-sizing: border-box` is applied during animation to avoid padding flash

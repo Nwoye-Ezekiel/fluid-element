@@ -560,7 +560,7 @@ const faqItems = [
       <div className="space-y-2">
         <p className={`text-sm font-medium ${isDark ? "text-gray-50" : "text-gray-900"}`}>Does it work with any content?</p>
         <p className={`text-xs leading-relaxed ${isDark ? "text-gray-200" : "text-gray-500"}`}>
-          Yes. Wrap any children — text, cards, lists, forms. As long as you pass a <code className={`px-1 py-0.5 rounded text-xs font-mono ${isDark ? "bg-white/10 text-gray-200" : "bg-black/8 text-gray-700"}`}>watch</code> value that changes when content changes, FluidElement handles the rest.
+          Yes. Wrap any children — text, cards, lists, forms. FluidElement detects size changes automatically and handles the rest.
         </p>
       </div>
     ),
@@ -605,8 +605,8 @@ const searchStates = [
     content: (isDark: boolean) => (
       <div className="flex items-center gap-2">
         <svg className={`w-3.5 h-3.5 shrink-0 ${isDark ? "text-gray-200" : "text-gray-500"}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <span className={`text-xs ${isDark ? "text-gray-50" : "text-gray-900"}`}>FluidElement react</span>
-        <span className="w-px h-3.5 bg-current animate-pulse ml-0.5" />
+        <span className={`text-xs ${isDark ? "text-gray-50" : "text-gray-900"}`}>FluidElement</span>
+        <span className="w-px h-3.5 bg-gray-300 animate-pulse -ml-0.5" />
       </div>
     ),
   },
@@ -985,7 +985,7 @@ export default function App() {
               className={`max-w-md text-base leading-relaxed ${isDark ? "text-gray-100" : "text-gray-500"}`}
             >
               Wherever a div height would snap, it animates instead. No
-              dependencies. No configuration. Just wrap and watch.
+              dependencies. No configuration. Just wrap.
             </p>
           </div>
 
@@ -993,7 +993,7 @@ export default function App() {
             <code
               className={`inline-block text-xs px-3 py-2 rounded-xl border font-mono ${isDark ? "bg-white/5 border-white/[0.08] text-gray-200" : "bg-black/5 border-black/[0.08] text-gray-500"}`}
             >
-              {"<FluidElement watch={value}>"}
+              {"<FluidElement animate=\"height\">"}
             </code>
             <div className="flex items-center gap-2">
               {[
@@ -1039,7 +1039,7 @@ export default function App() {
               <p className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}>Notification card</p>
               <Tabs options={heightCards} value={heightTab1} onChange={setHeightTab1} isDark={isDark} />
               <div className={`rounded-2xl border p-5 ${isDark ? "border-white/[0.08] bg-white/[0.02]" : "border-black/[0.08] bg-black/[0.02]"}`}>
-                <FluidElement watch={[heightTab1, heightEasing]} animate="height" easing={heightEasing}>
+                <FluidElement animate="height" easing={heightEasing}>
                   {activeHeight1.content(isDark)}
                 </FluidElement>
               </div>
@@ -1049,14 +1049,14 @@ export default function App() {
               <p className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}>FAQ accordion</p>
               <Tabs options={faqItems} value={heightTab2} onChange={setHeightTab2} isDark={isDark} />
               <div className={`rounded-2xl border p-5 ${isDark ? "border-white/[0.08] bg-white/[0.02]" : "border-black/[0.08] bg-black/[0.02]"}`}>
-                <FluidElement watch={[heightTab2, heightEasing]} animate="height" easing={heightEasing}>
+                <FluidElement animate="height" easing={heightEasing}>
                   {activeHeight2.content(isDark)}
                 </FluidElement>
               </div>
             </div>
           </div>
           <p className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}>
-            {`<FluidElement watch={tab} animate="height" easing="${heightEasing}">`}
+            {`<FluidElement animate="height" easing="${heightEasing}">`}
           </p>
         </DemoCard>
 
@@ -1077,7 +1077,6 @@ export default function App() {
               <Tabs options={widthSteps} value={widthStep1} onChange={setWidthStep1} isDark={isDark} />
               <div className={`rounded-2xl border p-5 overflow-hidden ${isDark ? "border-white/[0.08] bg-white/[0.02]" : "border-black/[0.08] bg-black/[0.02]"}`}>
                 <FluidElement
-                  watch={[widthStep1, widthEasing]}
                   animate="width"
                   easing={widthEasing}
                   className={`${activeWidth1.className} rounded-xl border px-4 py-2.5 ${isDark ? "border-white/10 bg-white/5" : "border-black/10 bg-black/5"}`}
@@ -1092,7 +1091,6 @@ export default function App() {
               <Tabs options={searchStates} value={widthStep2} onChange={setWidthStep2} isDark={isDark} />
               <div className={`rounded-2xl border p-5 overflow-hidden ${isDark ? "border-white/[0.08] bg-white/[0.02]" : "border-black/[0.08] bg-black/[0.02]"}`}>
                 <FluidElement
-                  watch={[widthStep2, widthEasing]}
                   animate="width"
                   easing={widthEasing}
                   className={`${activeWidth2.className} rounded-xl border px-4 py-2.5 ${isDark ? "border-white/10 bg-white/5" : "border-black/10 bg-black/5"}`}
@@ -1103,7 +1101,7 @@ export default function App() {
             </div>
           </div>
           <p className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}>
-            {`<FluidElement watch={step} animate="width" easing="${widthEasing}">`}
+            {`<FluidElement animate="width" easing="${widthEasing}">`}
           </p>
         </DemoCard>
 
@@ -1124,7 +1122,6 @@ export default function App() {
               <Tabs options={bothCards} value={bothCard1} onChange={setBothCard1} isDark={isDark} />
               <div className={`rounded-2xl border p-5 ${isDark ? "border-white/[0.08] bg-white/[0.02]" : "border-black/[0.08] bg-black/[0.02]"}`}>
                 <FluidElement
-                  watch={[bothCard1, bothEasing]}
                   animate="both"
                   easing={bothEasing}
                   className={`${activeBoth1.width} rounded-xl border p-4 ${isDark ? "border-white/10 bg-white/5" : "border-black/10 bg-black/5"}`}
@@ -1139,7 +1136,6 @@ export default function App() {
               <Tabs options={settingsPanels} value={bothCard2} onChange={setBothCard2} isDark={isDark} />
               <div className={`rounded-2xl border p-5 ${isDark ? "border-white/[0.08] bg-white/[0.02]" : "border-black/[0.08] bg-black/[0.02]"}`}>
                 <FluidElement
-                  watch={[bothCard2, bothEasing]}
                   animate="both"
                   easing={bothEasing}
                   className={`${activeBoth2.width} rounded-xl border p-4 ${isDark ? "border-white/10 bg-white/5" : "border-black/10 bg-black/5"}`}
@@ -1150,7 +1146,7 @@ export default function App() {
             </div>
           </div>
           <p className={`text-xs font-mono ${isDark ? "text-gray-200" : "text-gray-400"}`}>
-            {`<FluidElement watch={card} animate="both" easing="${bothEasing}">`}
+            {`<FluidElement animate="both" easing="${bothEasing}">`}
           </p>
         </DemoCard>
 
